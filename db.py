@@ -3,9 +3,11 @@ import databases
 from datetime import datetime
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
+import os
 
-DATABASE_URL = "postgresql+asyncpg://tug_user:tug_pass@db:5432/tug_db"
-SYNC_DATABASE_URL = "postgresql://tug_user:tug_pass@db:5432/tug_db"
+# Neon Tech Database Connection
+DATABASE_URL = f"postgresql+asyncpg://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}?sslmode={os.getenv('DB_SSLMODE')}"
+SYNC_DATABASE_URL = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}?sslmode={os.getenv('DB_SSLMODE')}"
 
 database = databases.Database(DATABASE_URL)
 metadata = MetaData()
