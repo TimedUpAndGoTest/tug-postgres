@@ -5,9 +5,16 @@ from sqlalchemy.dialects.postgresql import UUID
 import uuid
 import os
 
-# Neon Tech Database Connection
-DATABASE_URL = f"postgresql+asyncpg://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}?sslmode={os.getenv('DB_SSLMODE')}"
-SYNC_DATABASE_URL = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}?sslmode={os.getenv('DB_SSLMODE')}"
+# Neon Tech Database Connection - Con valores por defecto
+DB_USER = os.getenv('DB_USER', 'neondb_owner')
+DB_PASSWORD = os.getenv('DB_PASSWORD', 'npg_1z5eRvbokuXr')
+DB_HOST = os.getenv('DB_HOST', 'ep-ancient-forest-ahbu5yy8-pooler.us-east-1.aws.neon.tech')
+DB_PORT = os.getenv('DB_PORT', '5432')
+DB_NAME = os.getenv('DB_NAME', 'neondb')
+DB_SSLMODE = os.getenv('DB_SSLMODE', 'require')
+
+DATABASE_URL = f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?sslmode={DB_SSLMODE}"
+SYNC_DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?sslmode={DB_SSLMODE}"
 
 database = databases.Database(DATABASE_URL)
 metadata = MetaData()
