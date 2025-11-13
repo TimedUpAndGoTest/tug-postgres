@@ -8,7 +8,7 @@ import os
 # Neon Tech Database Connection - Con valores por defecto
 DB_USER = os.getenv('DB_USER', 'neondb_owner')
 DB_PASSWORD = os.getenv('DB_PASSWORD', 'npg_1z5eRvbokuXr')
-DB_HOST = os.getenv('DB_HOST', 'ep-ancient-forest-ahbu5yy8-pooler.us-east-1.aws.neon.tech')
+DB_HOST = os.getenv('DB_HOST', 'ep-ancient-forest-ahbu5yy8-pooler.c-3.us-east-1.aws.neon.tech')
 DB_PORT = os.getenv('DB_PORT', '5432')
 DB_NAME = os.getenv('DB_NAME', 'neondb')
 DB_SSLMODE = os.getenv('DB_SSLMODE', 'require')
