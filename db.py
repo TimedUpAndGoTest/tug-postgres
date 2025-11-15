@@ -4,8 +4,19 @@ from datetime import datetime
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 
-DATABASE_URL = "postgresql+asyncpg://tug_user:tug_pass@db:5432/tug_db"
-SYNC_DATABASE_URL = "postgresql://tug_user:tug_pass@db:5432/tug_db"
+DATABASE_URL = (
+    "postgresql+asyncpg://neondb_owner:npg_RPzIAad06yGT"
+    "@ep-flat-hill-a4q9apsj-pooler.us-east-1.aws.neon.tech"
+    "/neondb"
+    "?sslmode=require"
+)
+
+SYNC_DATABASE_URL = (
+    "postgresql://neondb_owner:npg_RPzIAad06yGT"
+    "@ep-flat-hill-a4q9apsj-pooler.us-east-1.aws.neon.tech"
+    "/neondb"
+    "?sslmode=require"
+)
 
 database = databases.Database(DATABASE_URL)
 metadata = MetaData()
